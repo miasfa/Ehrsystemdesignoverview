@@ -14,6 +14,9 @@ import {
   LogOut,
   User,
   Bell,
+  FileText,
+  ClipboardList,
+  Package,
 } from 'lucide-react';
 import { PrototypeDashboard } from './PrototypeDashboard';
 import { PrototypePatientList } from './PrototypePatientList';
@@ -24,14 +27,20 @@ import { PrototypeImaging } from './PrototypeImaging';
 import { PrototypeORSchedule } from './PrototypeORSchedule';
 import { PrototypeAuditLog } from './PrototypeAuditLog';
 import { PrototypePatientDetail } from './PrototypePatientDetail';
+import { PrototypeClinicalDoc } from './PrototypeClinicalDoc';
+import { PrototypeOrders } from './PrototypeOrders';
+import { PrototypeInventory } from './PrototypeInventory';
 
 type View = 
   | 'dashboard' 
   | 'patients' 
   | 'triage' 
+  | 'clinical-doc'
+  | 'orders'
   | 'lab' 
   | 'pharmacy' 
   | 'imaging' 
+  | 'inventory'
   | 'or-schedule' 
   | 'audit'
   | 'patient-detail';
@@ -60,6 +69,9 @@ export function SystemPrototype() {
     { id: 'imaging' as View, label: 'Imaging', icon: FileImage, badge: 2 },
     { id: 'or-schedule' as View, label: 'Operating Room', icon: Stethoscope, badge: null },
     { id: 'audit' as View, label: 'Audit Logs', icon: Eye, badge: null },
+    { id: 'clinical-doc' as View, label: 'Clinical Documents', icon: FileText, badge: null },
+    { id: 'orders' as View, label: 'Orders', icon: ClipboardList, badge: null },
+    { id: 'inventory' as View, label: 'Inventory', icon: Package, badge: null },
   ];
 
   return (
@@ -179,6 +191,9 @@ export function SystemPrototype() {
           {currentView === 'imaging' && <PrototypeImaging onViewPatient={handleViewPatient} />}
           {currentView === 'or-schedule' && <PrototypeORSchedule onViewPatient={handleViewPatient} />}
           {currentView === 'audit' && <PrototypeAuditLog />}
+          {currentView === 'clinical-doc' && <PrototypeClinicalDoc onViewPatient={handleViewPatient} />}
+          {currentView === 'orders' && <PrototypeOrders onViewPatient={handleViewPatient} />}
+          {currentView === 'inventory' && <PrototypeInventory />}
           {currentView === 'patient-detail' && selectedPatientId && (
             <PrototypePatientDetail 
               patientId={selectedPatientId} 

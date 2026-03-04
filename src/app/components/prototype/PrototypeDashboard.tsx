@@ -9,6 +9,9 @@ import {
   Clock,
   Activity,
   AlertCircle,
+  FileText,
+  ClipboardList,
+  Package,
 } from 'lucide-react';
 import { 
   mockPatients, 
@@ -17,6 +20,9 @@ import {
   mockMedications,
   mockImaging,
   mockORSchedule,
+  mockClinicalNotes,
+  mockOrders,
+  mockInventoryItems,
 } from './mockData';
 
 interface Props {
