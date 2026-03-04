@@ -13,10 +13,10 @@ export function RoadmapPhases() {
       {/* Phase Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {[
-          { phase: "MVP", duration: "6 months", facilities: "1 pilot", budget: "$500K - $800K" },
-          { phase: "Phase 2", duration: "12 months", facilities: "10 hospitals", budget: "$3M - $5M" },
-          { phase: "Phase 3", duration: "18 months", facilities: "50+ facilities", budget: "$10M - $15M" },
-          { phase: "National", duration: "36+ months", facilities: "All facilities", budget: "$50M+" },
+          { phase: "MVP", duration: "6 months", facilities: "1 pilot" },
+          { phase: "Phase 2", duration: "12 months", facilities: "10 hospitals" },
+          { phase: "Phase 3", duration: "18 months", facilities: "50+ facilities" },
+          { phase: "National", duration: "36+ months", facilities: "All facilities" },
         ].map((item, index) => (
           <div key={index} className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border border-blue-200">
             <h3 className="font-semibold text-xl mb-3">{item.phase}</h3>
@@ -28,10 +28,6 @@ export function RoadmapPhases() {
               <div className="flex items-center gap-2">
                 <Users className="w-4 h-4 text-blue-600" />
                 <span className="text-slate-700">{item.facilities}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <DollarSign className="w-4 h-4 text-blue-600" />
-                <span className="text-slate-700">{item.budget}</span>
               </div>
             </div>
           </div>
@@ -297,33 +293,6 @@ export function RoadmapPhases() {
                 <div className={`absolute top-1/2 ${index % 2 === 0 ? 'right-1/2 translate-x-1/2' : 'left-1/2 -translate-x-1/2'} w-4 h-4 bg-blue-500 rounded-full border-4 border-white -translate-y-1/2`}></div>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Budget Breakdown */}
-      <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl p-6 border border-slate-200">
-        <h3 className="font-semibold mb-4">Budget Allocation (Phase 1-3 Total: ~$18M)</h3>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
-          <div className="bg-white p-4 rounded">
-            <p className="font-semibold text-2xl text-blue-600">35%</p>
-            <p className="text-slate-600 mt-1">Software Development</p>
-          </div>
-          <div className="bg-white p-4 rounded">
-            <p className="font-semibold text-2xl text-emerald-600">25%</p>
-            <p className="text-slate-600 mt-1">Hardware & Infrastructure</p>
-          </div>
-          <div className="bg-white p-4 rounded">
-            <p className="font-semibold text-2xl text-purple-600">15%</p>
-            <p className="text-slate-600 mt-1">Training & Change Mgmt</p>
-          </div>
-          <div className="bg-white p-4 rounded">
-            <p className="font-semibold text-2xl text-orange-600">15%</p>
-            <p className="text-slate-600 mt-1">Implementation Support</p>
-          </div>
-          <div className="bg-white p-4 rounded">
-            <p className="font-semibold text-2xl text-red-600">10%</p>
-            <p className="text-slate-600 mt-1">Contingency & Ops</p>
           </div>
         </div>
       </div>

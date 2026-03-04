@@ -46,7 +46,7 @@ export const translations = {
     'common.fraudPrevention': 'Fraud Prevention',
 
     // ========== DASHBOARD ==========
-    'dashboard.title': 'Hospital Electronic Health Record System',
+    'dashboard.title': 'Avicenna - Hospital EHR System',
     'dashboard.subtitle': 'Complete architecture blueprint for a scalable, corruption-resistant, offline-first EHR platform starting with a single hospital pilot, designed for eventual expansion.',
     'dashboard.viewArchitecture': 'View Architecture',
     'dashboard.uiPrototypes': 'UI Prototypes',
@@ -188,7 +188,7 @@ export const translations = {
     'common.fraudPrevention': 'منع الاحتيال',
 
     // ========== DASHBOARD - عربي ==========
-    'dashboard.title': 'نظام السجلات الصحية الإلكترونية للمستشفى',
+    'dashboard.title': 'Avicenna - نظام السجلات الصحية الإلكترونية للمستشفى',
     'dashboard.subtitle': 'مخطط هندسي كامل لمنصة سجلات صحية إلكترونية قابلة للتوسع ومقاومة للفساد وتعمل أولاً دون اتصال، بدءًا من محاولة فردية في مستشفى واحد، مصممة للتوسع في المستقبل.',
     'dashboard.viewArchitecture': 'عرض الهندسة',
     'dashboard.uiPrototypes': 'نماذج الواجهة',
@@ -233,7 +233,7 @@ export const translations = {
     'tech.database': 'مخطط قاعدة البيانات',
     'tech.databaseDesc': 'الكيانات الأساسية، العلاقات، استراتيجية الفهرسة',
     'tech.security': 'نموذج الأمان',
-    'tech.securityDesc': 'RBAC، التشفير، مسارات التدقي��، الامتثال',
+    'tech.securityDesc': 'RBAC، التشفير، مسارات التدقي، الامتثال',
     'tech.deployment': 'استراتيجية النشر',
     'tech.deploymentDesc': 'أولًا دون اتصال، استراتيجية التزامن، إعداد ذات موارد منخفضة',
     'tech.techStack': 'البنية التحتية التقنية',

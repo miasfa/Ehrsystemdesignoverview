@@ -33,8 +33,8 @@ export function SimpleOverview() {
         <Heart className="w-12 h-12 mb-4" />
         <h1 className="text-4xl font-bold mb-3">
           {language === 'en' 
-            ? 'Understanding Our Digital Hospital System'
-            : 'فهم نظام المستشفى الرقمي'}
+            ? 'Understanding Avicenna Digital Hospital System'
+            : 'فهم نظام المستشفى الرقمي Avicenna'}
         </h1>
         <p className="text-blue-100 text-lg">
           {language === 'en'
@@ -47,24 +47,24 @@ export function SimpleOverview() {
       <section className="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg">
         <h2 className="text-2xl font-bold text-red-900 mb-4 flex items-center gap-2">
           <AlertCircle className="w-6 h-6" />
-          {language === 'en' ? 'The Problem We\'re Solving' : 'المشكلة التي نحلها'}
+          {language === 'en' ? 'Current System Challenges' : 'تحديات النظام الحالي'}
         </h2>
         <div className="space-y-3 text-red-900">
           {language === 'en' ? (
             <>
-              <p><strong>Paper-based chaos:</strong> Patient files get lost, duplicated, or damaged. Doctors can't find important medical history when they need it most.</p>
-              <p><strong>No tracking of medicines:</strong> Expensive drugs and medical supplies disappear without anyone knowing where they went. This leads to theft and waste.</p>
-              <p><strong>Fraud and corruption:</strong> Some people create fake medical records to steal medications or charge for services that never happened.</p>
-              <p><strong>Poor coordination:</strong> When a patient visits different hospitals, doctors don't know what happened at the other locations. Tests get repeated unnecessarily.</p>
-              <p><strong>No accountability:</strong> When something goes wrong, it's impossible to find out who did what and when.</p>
+              <p><strong>Paper-based inefficiencies:</strong> Patient files are vulnerable to loss, duplication, or damage. Healthcare providers cannot access critical medical history when needed.</p>
+              <p><strong>Limited supply chain visibility:</strong> Pharmaceuticals and medical supplies lack proper tracking systems, resulting in resource wastage and inventory discrepancies.</p>
+              <p><strong>Insufficient oversight mechanisms:</strong> Manual record-keeping systems create opportunities for unauthorized transactions and billing irregularities.</p>
+              <p><strong>Fragmented care coordination:</strong> When patients visit multiple facilities, healthcare providers lack access to complete medical histories, leading to redundant diagnostic procedures.</p>
+              <p><strong>Limited accountability:</strong> Current systems make it difficult to establish clear audit trails for clinical and administrative actions.</p>
             </>
           ) : (
             <>
-              <p><strong>فوضى السجلات الورقية:</strong> ملفات المرضى تضيع أو تتكرر أو تتلف. الأطباء لا يمكنهم العثور على التاريخ الطبي المهم عندما يحتاجونه أكثر.</p>
-              <p><strong>عدم تتبع الأدوية:</strong> الأدوية والإمدادات الطبية الباهظة الثمن تختفي دون أن يعرف أحد أين ذهبت. هذا يؤدي إلى السرقة والهدر.</p>
-              <p><strong>الاحتيال والفساد:</strong> بعض الناس ينشئون سجلات طبية مزيفة لسرقة الأدوية أو المطالبة بخدمات لم تحدث أبدًا.</p>
-              <p><strong>سوء التنسيق:</strong> عندما يزور المريض مستشفيات مختلفة، الأطباء لا يعرفون ما حدث في المواقع الأخرى. الفحوصات تتكرر بدون داعي.</p>
-              <p><strong>عدم المساءلة:</strong> عندما يحدث خطأ ما، من المستحيل معرفة من فعل ماذا ومتى.</p>
+              <p><strong>عدم كفاءة السجلات الورقية:</strong> ملفات المرضى عرضة للضياع أو التكرار أو التلف. مقدمو الرعاية الصحية لا يمكنهم الوصول إلى التاريخ الطبي الحرج عند الحاجة.</p>
+              <p><strong>محدودية رؤية سلسلة التوريد:</strong> الأدوية والإمدادات الطبية تفتقر إلى أنظمة تتبع مناسبة، مما يؤدي إلى هدر الموارد وتناقضات المخزون.</p>
+              <p><strong>آليات إشراف غير كافية:</strong> أنظمة حفظ السجلات اليدوية تخلق فرصًا للمعاملات غير المصرح بها ومخالفات الفواتير.</p>
+              <p><strong>تنسيق رعاية مجزأ:</strong> عندما يزور المرضى منشآت متعددة، يفتقر مقدمو الرعاية الصحية إلى الوصول إلى السجلات الطبية الكاملة، مما يؤدي إلى إجراءات تشخيصية زائدة.</p>
+              <p><strong>مساءلة محدودة:</strong> الأنظمة الحالية تجعل من الصعب إنشاء مسارات تدقيق واضحة للإجراءات السريرية والإدارية.</p>
             </>
           )}
         </div>
@@ -230,7 +230,7 @@ export function SimpleOverview() {
               <p className="text-slate-600">
                 {language === 'en'
                   ? 'Lab technician sees the test orders. They process samples and enter results directly into the system. Doctor gets notified immediately when results are ready.'
-                  : 'فني المختبر يرى طلبات الفحوصات. يعالج العينات ويدخل النتائج مباشرة في النظام. الطبيب يتلقى إشعارًا فوريًا عندما تك��ن النتائج جاهزة.'}
+                  : 'فني المختبر يرى طلبات الفحوصات. يعالج العينات ويدخل النتائج مباشرة في النظام. الطبيب يتلقى إشعارًا فوريًا عندما تكن النتائج جاهزة.'}
               </p>
             </div>
           </div>
@@ -557,7 +557,7 @@ export function SimpleOverview() {
                 <li>• <strong>وصول قائم على الأدوار:</strong> موظفو الاستقبال لا يمكنهم رؤية التفاصيل الطبية. الصيادلة لا يمكنهم رؤية الفواتير. الجميع يرى فقط ما يحتاجونه.</li>
                 <li>• <strong>مسار التدقيق:</strong> كل مرة يفتح شخص ما ملف مريض، يتم تسجيله. إذا نظر شخص ما إلى ملفات لا ينبغي له، نمسك به.</li>
                 <li>• <strong>تسجيل دخول آمن:</strong> كل موظف لديه تسجيل دخول فريد. لا يمكن مشاركة كلمات المرور. تسجيل خروج تلقائي بعد عدم النشاط.</li>
-                <li>• <strong>لا وصول خارجي:</strong> الإنترنت الخارجي لا يمكنه الوصول إلى السجلات الطبية. النظام معزول.</li>
+                <li>• <strong>لا وصول خارجي:</strong> الإنترنت الخارجي لا يمكنه الوصول إلى السجلات الطية. النظام معزول.</li>
               </ul>
             </>
           )}

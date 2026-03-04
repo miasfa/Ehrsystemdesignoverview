@@ -1,7 +1,6 @@
 import { Outlet, Link, useLocation } from "react-router";
 import {
   Activity,
-  AlertTriangle,
   Database,
   Shield,
   Layers,
@@ -19,6 +18,7 @@ import {
   Map,
   Menu,
   X,
+  Target,
 } from "lucide-react";
 import { useState } from "react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -39,7 +39,6 @@ export function Root() {
       type: "separator",
       children: [
         { name: translate("nav.patientIdentity", language), href: "/module-patient-identity", icon: User },
-        { name: translate("nav.triage", language), href: "/module-triage", icon: AlertTriangle },
         { name: translate("nav.clinicalDoc", language), href: "/module-clinical-doc", icon: FileText },
         { name: translate("nav.orders", language), href: "/module-orders", icon: ClipboardList },
         { name: translate("nav.pharmacy", language), href: "/module-pharmacy", icon: Pill },
@@ -119,6 +118,19 @@ export function Root() {
                   <FileText className="w-5 h-5" />
                   <span className="text-sm font-medium">
                     {language === 'en' ? 'Simple Explanation' : 'شرح مبسط'}
+                  </span>
+                </Link>
+                <Link
+                  to="/strategy-planning"
+                  className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
+                    location.pathname === '/strategy-planning'
+                      ? 'bg-emerald-50 text-emerald-700'
+                      : 'text-slate-700 hover:bg-slate-100'
+                  }`}
+                >
+                  <Target className="w-5 h-5" />
+                  <span className="text-sm font-medium">
+                    {language === 'en' ? 'Strategy & Planning' : 'الاستراتيجية والتخطيط'}
                   </span>
                 </Link>
               </div>

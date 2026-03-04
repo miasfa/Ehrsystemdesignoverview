@@ -36,10 +36,10 @@ export function Dashboard() {
       priority: t('common.critical'),
     },
     {
-      title: t('module.triage'),
+      title: language === 'en' ? 'Emergency Triage' : 'تصنيف الطوارئ',
       href: "/module-triage",
       icon: AlertTriangle,
-      description: t('module.triageDesc'),
+      description: language === 'en' ? 'Patient prioritization, ESI scoring, queue management' : 'تحديد أولويات المرضى، تسجيل ESI، إدارة قوائم الانتظار',
       priority: t('common.critical'),
     },
     {
@@ -147,6 +147,20 @@ export function Dashboard() {
                 {language === 'en' ? 'Simple Explanation' : 'شرح مبسط'}
               </Link>
               <Link
+                to="/prototype"
+                className="bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-600 transition-colors flex items-center gap-2"
+              >
+                <Activity className="w-5 h-5" />
+                {language === 'en' ? '🚀 Live Working System' : '🚀 نظام عامل حي'}
+              </Link>
+              <Link
+                to="/strategy-planning"
+                className="bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-400 transition-colors flex items-center gap-2"
+              >
+                <Target className="w-5 h-5" />
+                {language === 'en' ? 'Strategy & Planning' : 'الاستراتيجية'}
+              </Link>
+              <Link
                 to="/architecture"
                 className="bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-400 transition-colors"
               >
@@ -200,7 +214,7 @@ export function Dashboard() {
                   </div>
                   <span
                     className={`text-xs px-2 py-1 rounded-full ${
-                      module.priority === "Critical" || module.priority === "حرج"
+                      module.priority === "Critical"
                         ? "bg-red-100 text-red-700"
                         : "bg-amber-100 text-amber-700"
                     }`}

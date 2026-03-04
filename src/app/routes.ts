@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { Root } from "./components/Root";
 import { Dashboard } from "./components/Dashboard";
 import { SimpleOverview } from "./components/SimpleOverview";
+import { StrategyPlanning } from "./components/StrategyPlanning";
 import { SystemArchitecture } from "./components/SystemArchitecture";
 import { DatabaseSchema } from "./components/DatabaseSchema";
 import { ModulePharmacy } from "./components/ModulePharmacy";
@@ -18,6 +19,7 @@ import { DeploymentStrategy } from "./components/DeploymentStrategy";
 import { TechStack } from "./components/TechStack";
 import { UIPrototypes } from "./components/UIPrototypes";
 import { RoadmapPhases } from "./components/RoadmapPhases";
+import { SystemPrototype } from "./components/prototype/SystemPrototype";
 import { NotFound } from "./components/NotFound";
 
 export const router = createBrowserRouter([
@@ -27,10 +29,10 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: Dashboard },
       { path: "simple-overview", Component: SimpleOverview },
+      { path: "strategy-planning", Component: StrategyPlanning },
       { path: "architecture", Component: SystemArchitecture },
       { path: "database", Component: DatabaseSchema },
       { path: "module-patient-identity", Component: ModulePatientIdentity },
-      { path: "module-triage", Component: ModuleTriage },
       { path: "module-clinical-doc", Component: ModuleClinicalDoc },
       { path: "module-orders", Component: ModuleOrders },
       { path: "module-pharmacy", Component: ModulePharmacy },
@@ -38,11 +40,13 @@ export const router = createBrowserRouter([
       { path: "module-lab", Component: ModuleLab },
       { path: "module-inventory", Component: ModuleInventory },
       { path: "module-audit", Component: ModuleAudit },
+      { path: "module-triage", Component: ModuleTriage },
       { path: "security", Component: SecurityModel },
       { path: "deployment", Component: DeploymentStrategy },
       { path: "tech-stack", Component: TechStack },
       { path: "ui-prototypes", Component: UIPrototypes },
       { path: "roadmap", Component: RoadmapPhases },
+      { path: "prototype", Component: SystemPrototype },
       { path: "*", Component: NotFound },
     ],
   },
