@@ -1,0 +1,18 @@
+// PATCH — apply to src/app/components/Root.tsx
+//
+// 1. Add to lucide-react import line:
+//    add:  AlertTriangle
+//
+// 2. Replace the modules children array inside the navigation const:
+
+      children: [
+        { name: translate("nav.patientIdentity", language), href: "/module-patient-identity", icon: User },
+        { name: translate("nav.triage", language), href: "/module-triage", icon: AlertTriangle },
+        { name: translate("nav.clinicalDoc", language), href: "/module-clinical-doc", icon: FileText },
+        { name: translate("nav.orders", language), href: "/module-orders", icon: ClipboardList },
+        { name: translate("nav.pharmacy", language), href: "/module-pharmacy", icon: Pill },
+        { name: translate("nav.operatingRoom", language), href: "/module-operating-room", icon: Stethoscope },
+        { name: translate("nav.lab", language), href: "/module-lab", icon: TestTube },
+        { name: translate("nav.inventory", language), href: "/module-inventory", icon: Package },
+        { name: translate("nav.audit", language), href: "/module-audit", icon: Eye },
+      ],
