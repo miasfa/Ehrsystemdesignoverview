@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// USER MANAGEMENT & AUTHENTICATION
+// ============================================
+
+model User {
+  id              String    @id @default(cuid())
+  username        String    @unique
+  email           String    @unique
+  passwordHash    String
+  fullName        String
+  role            UserRole
+  isActive        Boolean   @default(true)
+  
+  // Audit fields
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  lastLoginAt     DateTime?
+  
+  // Relations
+  createdPatients Patient[] @relation("CreatedBy")
+  auditLogs       AuditLog[]
+  
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  DOCTOR
+  NURSE
+  RECEPTIONIST
+  PHARMACIST
+  LAB_TECH
+  RADIOLOGIST
+  TRIAGE_NURSE
+}
+
+// ============================================
+// PATIENT REGISTRY
+// ============================================
+
+model Patient {
+  id                String    @id @default(cuid())
+  
+  // Identity Information
+  identityLevel     IdentityLevel
+  nationalId        String?   @unique
+  passportNumber    String?
+  
+  // Demographics
+  firstName         String
+  middleName        String?
+  lastName          String
+  motherName        String?
+  dateOfBirth       DateTime
+  gender            Gender
+  bloodType         BloodType?
+  
+  // Contact Information
+  phoneNumber       String?
+  alternatePhone    String?
+  email             String?
+  address           String?
+  city              String?
+  province          String?
+  
+  // Medical Information
+  allergies         String?   // JSON array of allergies
+  chronicConditions String?   // JSON array of conditions
+  emergencyContact  String?   // JSON object with name, phone, relationship
+  
+  // System Fields
+  photo             String?   // URL or file path
+  registrationDate  DateTime  @default(now())
+  isActive          Boolean   @default(true)
+  
+  // Audit fields
+  createdAt         DateTime  @default(now())
+  createdById       String
+  updatedAt         DateTime  @updatedAt
+  
+  // Relations
+  createdBy         User      @relation("CreatedBy", fields: [createdById], references: [id])
+  encounters        Encounter[]
+  
+  @@map("patients")
+  @@index([nationalId])
+  @@index([firstName, lastName])
+}
+
+enum IdentityLevel {
+  L0  // Basic registration (name, DOB, photo)
+  L2  // Full identity (national ID or passport + biometrics)
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum BloodType {
+  A_POSITIVE
+  A_NEGATIVE
+  B_POSITIVE
+  B_NEGATIVE
+  O_POSITIVE
+  O_NEGATIVE
+  AB_POSITIVE
+  AB_NEGATIVE
+}
+
+// ============================================
+// ENCOUNTERS (for future modules)
+// ============================================
+
+model Encounter {
+  id              String    @id @default(cuid())
+  patientId       String
+  
+  encounterType   EncounterType
+  chiefComplaint  String?
+  status          EncounterStatus
+  
+  admissionDate   DateTime  @default(now())
+  dischargeDate   DateTime?
+  
+  // Relations
+  patient         Patient   @relation(fields: [patientId], references: [id])
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  @@map("encounters")
+  @@index([patientId])
+  @@index([admissionDate])
+}
+
+enum EncounterType {
+  EMERGENCY
+  OUTPATIENT
+  INPATIENT
+  FOLLOW_UP
+}
+
+enum EncounterStatus {
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+// ============================================
+// AUDIT LOGS
+// ============================================
+
+model AuditLog {
+  id            String    @id @default(cuid())
+  
+  userId        String
+  action        String    // CREATE, UPDATE, DELETE, LOGIN, etc.
+  entityType    String    // Patient, User, Encounter, etc.
+  entityId      String?
+  
+  changes       String?   // JSON object of before/after values
+  ipAddress     String?
+  userAgent     String?
+  
+  timestamp     DateTime  @default(now())
+  
+  // Relations
+  user          User      @relation(fields: [userId], references: [id])
+  
+  @@map("audit_logs")
+  @@index([userId])
+  @@index([entityType, entityId])
+  @@index([timestamp])
+}

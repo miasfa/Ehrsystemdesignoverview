@@ -172,6 +172,273 @@ export interface StockMovement {
   orderId?: string;
 }
 
+export type UserRole = 
+  | 'administrator'
+  | 'doctor'
+  | 'nurse'
+  | 'pharmacist'
+  | 'lab-technician'
+  | 'radiologist'
+  | 'receptionist'
+  | 'auditor';
+
+export interface SystemUser {
+  id: string;
+  name: string;
+  role: UserRole;
+  department: string;
+  avatar?: string;
+  permissions: {
+    viewDashboard: boolean;
+    viewPatients: boolean;
+    editPatients: boolean;
+    viewTriage: boolean;
+    editTriage: boolean;
+    viewClinicalDoc: boolean;
+    editClinicalDoc: boolean;
+    viewOrders: boolean;
+    createOrders: boolean;
+    viewLab: boolean;
+    editLab: boolean;
+    viewPharmacy: boolean;
+    dispenseMedication: boolean;
+    viewImaging: boolean;
+    editImaging: boolean;
+    viewInventory: boolean;
+    editInventory: boolean;
+    viewORSchedule: boolean;
+    editORSchedule: boolean;
+    viewAudit: boolean;
+  };
+}
+
+export const mockSystemUsers: SystemUser[] = [
+  {
+    id: 'USR-001',
+    name: 'Dr. Karim Al-Baghdadi',
+    role: 'doctor',
+    department: 'Emergency Medicine',
+    permissions: {
+      viewDashboard: true,
+      viewPatients: true,
+      editPatients: true,
+      viewTriage: true,
+      editTriage: true,
+      viewClinicalDoc: true,
+      editClinicalDoc: true,
+      viewOrders: true,
+      createOrders: true,
+      viewLab: true,
+      editLab: false,
+      viewPharmacy: true,
+      dispenseMedication: false,
+      viewImaging: true,
+      editImaging: false,
+      viewInventory: true,
+      editInventory: false,
+      viewORSchedule: true,
+      editORSchedule: false,
+      viewAudit: false,
+    },
+  },
+  {
+    id: 'USR-002',
+    name: 'Nurse Fatima Hassan',
+    role: 'nurse',
+    department: 'Emergency Department',
+    permissions: {
+      viewDashboard: true,
+      viewPatients: true,
+      editPatients: false,
+      viewTriage: true,
+      editTriage: true,
+      viewClinicalDoc: true,
+      editClinicalDoc: false,
+      viewOrders: true,
+      createOrders: false,
+      viewLab: true,
+      editLab: false,
+      viewPharmacy: true,
+      dispenseMedication: true,
+      viewImaging: true,
+      editImaging: false,
+      viewInventory: true,
+      editInventory: false,
+      viewORSchedule: true,
+      editORSchedule: false,
+      viewAudit: false,
+    },
+  },
+  {
+    id: 'USR-003',
+    name: 'Pharmacist Ahmed Rashid',
+    role: 'pharmacist',
+    department: 'Pharmacy',
+    permissions: {
+      viewDashboard: false,
+      viewPatients: true,
+      editPatients: false,
+      viewTriage: false,
+      editTriage: false,
+      viewClinicalDoc: false,
+      editClinicalDoc: false,
+      viewOrders: true,
+      createOrders: false,
+      viewLab: false,
+      editLab: false,
+      viewPharmacy: true,
+      dispenseMedication: true,
+      viewImaging: false,
+      editImaging: false,
+      viewInventory: true,
+      editInventory: true,
+      viewORSchedule: false,
+      editORSchedule: false,
+      viewAudit: false,
+    },
+  },
+  {
+    id: 'USR-004',
+    name: 'Lab Tech Omar Ibrahim',
+    role: 'lab-technician',
+    department: 'Laboratory',
+    permissions: {
+      viewDashboard: false,
+      viewPatients: true,
+      editPatients: false,
+      viewTriage: false,
+      editTriage: false,
+      viewClinicalDoc: false,
+      editClinicalDoc: false,
+      viewOrders: true,
+      createOrders: false,
+      viewLab: true,
+      editLab: true,
+      viewPharmacy: false,
+      dispenseMedication: false,
+      viewImaging: false,
+      editImaging: false,
+      viewInventory: false,
+      editInventory: false,
+      viewORSchedule: false,
+      editORSchedule: false,
+      viewAudit: false,
+    },
+  },
+  {
+    id: 'USR-005',
+    name: 'Dr. Sara Al-Najjar',
+    role: 'radiologist',
+    department: 'Radiology',
+    permissions: {
+      viewDashboard: false,
+      viewPatients: true,
+      editPatients: false,
+      viewTriage: false,
+      editTriage: false,
+      viewClinicalDoc: true,
+      editClinicalDoc: false,
+      viewOrders: true,
+      createOrders: false,
+      viewLab: false,
+      editLab: false,
+      viewPharmacy: false,
+      dispenseMedication: false,
+      viewImaging: true,
+      editImaging: true,
+      viewInventory: false,
+      editInventory: false,
+      viewORSchedule: false,
+      editORSchedule: false,
+      viewAudit: false,
+    },
+  },
+  {
+    id: 'USR-006',
+    name: 'Receptionist Layla Mohammed',
+    role: 'receptionist',
+    department: 'Front Desk',
+    permissions: {
+      viewDashboard: true,
+      viewPatients: true,
+      editPatients: true,
+      viewTriage: true,
+      editTriage: true,
+      viewClinicalDoc: false,
+      editClinicalDoc: false,
+      viewOrders: false,
+      createOrders: false,
+      viewLab: false,
+      editLab: false,
+      viewPharmacy: false,
+      dispenseMedication: false,
+      viewImaging: false,
+      editImaging: false,
+      viewInventory: false,
+      editInventory: false,
+      viewORSchedule: true,
+      editORSchedule: false,
+      viewAudit: false,
+    },
+  },
+  {
+    id: 'USR-007',
+    name: 'Admin Hassan Ali',
+    role: 'administrator',
+    department: 'IT & Administration',
+    permissions: {
+      viewDashboard: true,
+      viewPatients: true,
+      editPatients: true,
+      viewTriage: true,
+      editTriage: true,
+      viewClinicalDoc: true,
+      editClinicalDoc: true,
+      viewOrders: true,
+      createOrders: true,
+      viewLab: true,
+      editLab: true,
+      viewPharmacy: true,
+      dispenseMedication: true,
+      viewImaging: true,
+      editImaging: true,
+      viewInventory: true,
+      editInventory: true,
+      viewORSchedule: true,
+      editORSchedule: true,
+      viewAudit: true,
+    },
+  },
+  {
+    id: 'USR-008',
+    name: 'Auditor Noor Khalid',
+    role: 'auditor',
+    department: 'Compliance & Audit',
+    permissions: {
+      viewDashboard: true,
+      viewPatients: true,
+      editPatients: false,
+      viewTriage: true,
+      editTriage: false,
+      viewClinicalDoc: true,
+      editClinicalDoc: false,
+      viewOrders: true,
+      createOrders: false,
+      viewLab: true,
+      editLab: false,
+      viewPharmacy: true,
+      dispenseMedication: false,
+      viewImaging: true,
+      editImaging: false,
+      viewInventory: true,
+      editInventory: false,
+      viewORSchedule: true,
+      editORSchedule: false,
+      viewAudit: true,
+    },
+  },
+];
+
 export interface Encounter {
   id: string;
   patientId: string;

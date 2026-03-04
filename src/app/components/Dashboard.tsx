@@ -19,6 +19,7 @@ import {
   AlertTriangle,
   CheckCircle,
   Target,
+  Play,
 } from "lucide-react";
 import { useTranslation } from "../hooks/useTranslation";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -140,6 +141,13 @@ export function Dashboard() {
             </p>
             <div className="flex gap-4">
               <Link
+                to="/getting-started"
+                className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center gap-2 ring-2 ring-white/50"
+              >
+                <Play className="w-5 h-5" />
+                {language === 'en' ? '🎓 Getting Started Guide' : '🎓 دليل البدء'}
+              </Link>
+              <Link
                 to="/simple-overview"
                 className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center gap-2"
               >
@@ -147,7 +155,7 @@ export function Dashboard() {
                 {language === 'en' ? 'Simple Explanation' : 'شرح مبسط'}
               </Link>
               <Link
-                to="/prototype"
+                to="/hospital-box"
                 className="bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-600 transition-colors flex items-center gap-2"
               >
                 <Activity className="w-5 h-5" />
@@ -276,6 +284,78 @@ export function Dashboard() {
             {t('tech.roadmapDesc')}
           </p>
         </Link>
+      </div>
+
+      {/* Functional Prototypes */}
+      <div>
+        <h2 className="text-2xl font-semibold mb-4">Live Functional Prototypes</h2>
+        <div className="grid grid-cols-1 gap-4">
+          <Link
+            to="/hospital-box"
+            className="bg-gradient-to-r from-emerald-50 to-emerald-100 border-2 border-emerald-400 rounded-xl p-8 hover:shadow-xl transition-all ring-4 ring-emerald-200"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <CheckCircle className="w-12 h-12 text-emerald-600" />
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-2xl font-bold text-slate-900">Hospital-in-a-Box</h3>
+                  <span className="text-xs px-3 py-1 bg-emerald-600 text-white rounded-full font-bold">LIVE SYSTEM ✨</span>
+                </div>
+                <p className="text-sm text-emerald-700 font-semibold">Production-Ready EHR with Real Workflows</p>
+              </div>
+            </div>
+            <p className="text-slate-700 mb-4">
+              Complete functional EHR system with Zustand state management, 7 working modules, RBAC (8 roles), 
+              closed-loop workflows, auto-EWS calculation, critical result protocols, dual signature verification, 
+              antibiotic stewardship, and complete audit trails.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+              <div className="bg-white rounded-lg p-3 text-center border border-emerald-200">
+                <div className="text-2xl font-bold text-emerald-600">8</div>
+                <div className="text-xs text-slate-600">User Roles</div>
+              </div>
+              <div className="bg-white rounded-lg p-3 text-center border border-emerald-200">
+                <div className="text-2xl font-bold text-emerald-600">7</div>
+                <div className="text-xs text-slate-600">Live Modules</div>
+              </div>
+              <div className="bg-white rounded-lg p-3 text-center border border-emerald-200">
+                <div className="text-2xl font-bold text-emerald-600">15</div>
+                <div className="text-xs text-slate-600">Inventory Items</div>
+              </div>
+              <div className="bg-white rounded-lg p-3 text-center border border-emerald-200">
+                <div className="text-2xl font-bold text-emerald-600">4</div>
+                <div className="text-xs text-slate-600">Quick Protocols</div>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <span className="text-xs px-3 py-1 bg-emerald-600 text-white rounded-full font-semibold">✅ Patient Registry</span>
+              <span className="text-xs px-3 py-1 bg-emerald-600 text-white rounded-full font-semibold">✅ Auto-EWS Triage</span>
+              <span className="text-xs px-3 py-1 bg-emerald-600 text-white rounded-full font-semibold">✅ Clinical Station</span>
+              <span className="text-xs px-3 py-1 bg-emerald-600 text-white rounded-full font-semibold">✅ Laboratory</span>
+              <span className="text-xs px-3 py-1 bg-emerald-600 text-white rounded-full font-semibold">✅ Radiology</span>
+              <span className="text-xs px-3 py-1 bg-emerald-600 text-white rounded-full font-semibold">✅ Pharmacy</span>
+              <span className="text-xs px-3 py-1 bg-emerald-600 text-white rounded-full font-semibold">✅ Inventory</span>
+            </div>
+          </Link>
+
+          <Link
+            to="/prototype"
+            className="bg-gradient-to-r from-slate-50 to-slate-100 border border-slate-300 rounded-xl p-6 hover:shadow-md transition-all opacity-75"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <Activity className="w-8 h-8 text-slate-500" />
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-lg font-semibold text-slate-700">Original UI Prototype</h3>
+                  <span className="text-xs px-2 py-0.5 bg-slate-300 text-slate-700 rounded-full">Legacy / Archive</span>
+                </div>
+              </div>
+            </div>
+            <p className="text-sm text-slate-600">
+              Static mockup with sample data (5 Iraqi patients, X-ray viewer, lab results). Now superseded by the live Hospital-in-a-Box system above.
+            </p>
+          </Link>
+        </div>
       </div>
 
       {/* Critical Warning */}
